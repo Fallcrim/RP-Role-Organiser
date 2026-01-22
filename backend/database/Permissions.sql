@@ -1,0 +1,8 @@
+CREATE TABLE Permissions (
+  permID INT NOT NULL AUTOINCREMENT,
+  permName TEXT NOT NULL,
+  permFullName TEXT NOT NULL,
+  permDescription TEXT,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY(permID)
+);

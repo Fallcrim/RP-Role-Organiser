@@ -1,0 +1,8 @@
+CREATE TABLE RolePermLink (
+  roleID INT NOT NULL,
+  permID INT NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY(roleID, permID),
+  FOREIGN KEY(roleID) REFERENCES Roles(roleID),
+  FOREIGN KEY(permID) REFERENCES Permissions(permID)
+);

@@ -1,0 +1,8 @@
+CREATE TABLE UserPermLink (
+  userID INT NOT NULL,
+  permID INT NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY(userID, permID),
+  FOREIGN KEY(userID) REFERENCES Users(userID),
+  FOREIGN KEY(permID) REFERENCES Permissions(permID)
+);

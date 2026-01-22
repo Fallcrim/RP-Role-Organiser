@@ -1,0 +1,20 @@
+CREATE TABLE Events (
+  eventID INT NOT NULL AUTOINCREMENT,
+  eventName TEXT NOT NULL,
+  eventDescription TEXT NOT NULL,
+  organisation INT NOT NULL,
+  start_at TIMESTAMP NOT NULL,
+  end_at TIMESTAMP NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY(eventID),
+  FOREIGN KEY(organisation) REFERENCES Organisations(orgID)
+);
+
+CREATE TRIGGER [UpdateLastTime]
+AFTER UPDATE
+ON Events
+FOR EACH ROW
+BEGIN
+UPDATE Events SET updated_at = CURRENT_TIMESTAMP WHERE eventID = old.eventID
+END;
